@@ -1,1 +1,1 @@
-## Repositorio para la métodos computacionaless
+## Repositorio para métodos computacionaless
