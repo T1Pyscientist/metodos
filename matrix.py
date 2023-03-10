@@ -40,7 +40,6 @@ class Matrix:
             return Matrix(m)
         
 
-
     def __mul__(self, other):
         if isinstance(other, (int, float)):
             return Matrix([[x * other for x in f] for f in self.compoments])
@@ -57,8 +56,29 @@ class Matrix:
 
                 return Vector(v)
         elif isinstance(other, Matrix):
-            pass
+            if self.dimensions[1] != other.dimensions[0]:
+                return ValueError("Dimensiones incorrectas")
+            else:
+                m = [[] for i in range(self.dimensions[0])]
+                for i in range(self.dimensions[0]):
+                    for j in range(other.dimensions[1]):
+                        c_ij = 0
+                        for e in range(self.dimensions[1]):
+                            c_ij += (self.compoments[i][e] * other.compoments[e][j])
+                        m[i].append(c_ij)
 
+                return Matrix(m)
+                
+        else:
+            return ValueError("No soporta ese tipo para multiplicar")
+
+
+    def __rmul__(self, other): 
+        if (isinstance(other, (int, float)) or
+            isinstance(other, Vector) or
+            isinstance(other, Matrix)): return self *other
+        else:
+            return ValueError("No soporta ese tipo para multiplicar")
 
 
     def __repr__(self) -> str:
