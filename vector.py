@@ -1,6 +1,6 @@
 class Vector():
     """  Vector de n-dimensiones
-    
+
     Parameters
     ----------
     valores : list[(int, float)]
@@ -16,7 +16,7 @@ class Vector():
 
     """
     
-    def __init__(self, valores) -> None:
+    def __init__(self, valores: list) -> None:
         self.componentes = valores
         self.dimension = len(valores)
 
