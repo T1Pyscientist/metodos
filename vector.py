@@ -28,10 +28,17 @@ class Vector():
             return Vector([a_1 + a_2 for a_1, a_2 in zip(self.componentes, other.componentes)])
         
     def __mul__(self, value):
-        if not isinstance(value, (int, float)):
-            return ValueError("Must be a real number")
-        else:
+        if isinstance(value, (int, float)):
             return Vector([a_1 * value for a_1 in self.componentes])
+        # elif isinstance(value, Matrix):
+        #     print("implementar vector por matriz")
+        elif isinstance(value, Vector):
+            if (value.dimension == self.dimension):
+                return sum([x * y for x, y in zip(self.componentes, value.componentes)])
+            else:
+                return ValueError("Must have same dimensions")
+        else:
+            return ValueError("Must be a real number")
         
     def __rmul__(self, value):
         if not isinstance(value, (int, float)):

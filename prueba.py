@@ -2,10 +2,19 @@ from vector import Vector
 from matrix import Matrix
 
 
-a = Matrix([[1, 2, 2], [2, 3, 1]])
-b = Matrix([[1, 1], [2, 1], [2, 1]])
-v = Vector([1, 1, 1])
+A = Matrix([
+    [1, 2, 3, 1], 
+    [1, 3, 3, 1], 
+    [1, 2, 4, 1],
+    [2, 3, 5, 8]
+])
 
-m = a * b
+B = Matrix([
+    [1, 0, 0, 0],
+    [0, 1, 0, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 1]
+])
 
-print(m)
+# C = A.multPartes(B, 2)
+print(Matrix.zeros(4, 2))
